@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.checkbox {
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  border-radius: 0px;
+  accent-color: #008594;
+  cursor: pointer;
+}

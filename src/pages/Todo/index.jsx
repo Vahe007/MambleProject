@@ -18,12 +18,14 @@ const Todo = () => {
     const { head, input_container, input, input_head, input_field, input_field_lfs, helper_text } = styles
     const { tasks, setTasks } = useContext(TaskContext)
 
+    const [showCompleted, setShowCompleted] = useState(false)
+
     const formik = useFormik({
         initialValues: { task: "" },
         validationSchema: taskValidationSchema,
         onSubmit: ({ task }, { resetForm }) => {
             console.log("tasks", tasks)
-            setTasks((prevTasks) => ([...prevTasks, {checked: false, name: task, id: uuid()}]))
+            setTasks((prevTasks) => ([{ checked: false, name: task, id: uuid() }, ...prevTasks]))
             resetForm({ values: '' })
         }
     })
@@ -31,7 +33,7 @@ const Todo = () => {
     return (
         <div>
             <div className={head}>
-                <CheckBox sx={{ mr: '15px', color: '#008594' }} />
+                <input value={showCompleted} onChange={() => { setShowCompleted(!showCompleted) }} type="checkbox" className='checkbox' style={{ marginRight: '15px' }} />
                 <p>Hide Component</p>
             </div>
             <div className={input_container}>
@@ -44,7 +46,7 @@ const Todo = () => {
                     <Button type='submit' sx={{ ml: '24px', width: '100px', background: '#008594' }} variant="contained">Add</Button>
                 </form>
             </div>
-            <List />
+            <List showCompleted={showCompleted} />
         </div>
     )
 }
