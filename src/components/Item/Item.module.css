@@ -1,0 +1,23 @@
+.task_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #E5E5E5;
+    ;
+}
+
+.task_lfs {
+    display: flex;
+    align-items: center;
+}
+
+.task_content {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    text-transform: capitalize;
+    color: #666666;
+    margin-left: 35px;
+}
