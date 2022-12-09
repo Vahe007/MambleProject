@@ -15,10 +15,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 
 const Todo = () => {
-    const { head, input_container, input, input_head, input_field, input_field_lfs, helper_text } = styles
     const { tasks, setTasks } = useContext(TaskContext)
-
-    const [showCompleted, setShowCompleted] = useState(false)
+    const [hideCompleted, setHideCompleted] = useState(false)
 
     const formik = useFormik({
         initialValues: { task: "" },
@@ -29,12 +27,13 @@ const Todo = () => {
             resetForm({ values: '' })
         }
     })
+    const { head, input_container, input, input_head, input_field, input_field_lfs, helper_text, head_title, addBtn } = styles
 
     return (
         <div>
             <div className={head}>
-                <input value={showCompleted} onChange={() => { setShowCompleted(!showCompleted) }} type="checkbox" className='checkbox' style={{ marginRight: '15px' }} />
-                <p>Hide Component</p>
+                <input value={hideCompleted} onChange={() => { setHideCompleted(!hideCompleted) }} type="checkbox" className='checkbox' style={{ marginRight: '15px' }} />
+                <p className={head_title}>Hide Component</p>
             </div>
             <div className={input_container}>
                 <p className={input_head}>Task</p>
@@ -43,10 +42,10 @@ const Todo = () => {
                         <input value={formik.values.task} onChange={formik.handleChange} style={formik.errors?.task ? { border: '1px solid red' } : {}} name='task' placeholder='Write here' className={input} />
                         <p className={helper_text}>{formik.errors?.task}</p>
                     </div>
-                    <Button type='submit' sx={{ ml: '24px', width: '100px', background: '#008594' }} variant="contained">Add</Button>
+                    <Button className='addBtn' type='submit' sx={{ ml: '24px', width: '100px', background: '#008594' }} variant="contained">Add</Button>
                 </form>
             </div>
-            <List showCompleted={showCompleted} />
+            <List hideCompleted={hideCompleted} />
         </div>
     )
 }

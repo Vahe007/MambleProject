@@ -7,7 +7,10 @@
     letter-spacing: 0.2px;
     text-transform: capitalize;
     color: #ACACAC;
+    margin-bottom: 0;
+    margin-top: 140px;
 }
+
 .empty2 {
     font-family: 'Poppins';
     font-style: normal;
@@ -17,4 +20,23 @@
     letter-spacing: 0.002em;
     text-transform: capitalize;
     color: #666666;
+    margin-top: 0;
+}
+
+
+@media screen and (max-width: 720px) {
+    .empty1 {
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0.2px;
+        text-transform: capitalize;
+    }
+
+    .empty2 {
+        font-size: 18px;
+        line-height: 27px;
+        letter-spacing: 0.002em;
+        text-transform: capitalize;
+        color: #666666;
+    }
 }

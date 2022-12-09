@@ -23,13 +23,6 @@
     outline: none;
 }
 
-.input_field {
-    height: 52px;
-    /* width: 66.25%; */
-    display: flex;
-    justify-content: flex-start;
-}
-
 .input_head {
     display: flex;
     font-family: 'Poppins';
@@ -42,14 +35,48 @@
     margin-bottom: 0;
 }
 
+.input_field {
+    height: 52px;
+    display: flex;
+    justify-content: flex-start;
+}
+
 .input_field_lfs {
     display: flex;
     flex-direction: column;
-    width: 66.25%;
+    width: 82.5%;
 }
 
 .helper_text {
     text-align: start;
     margin-top: 0;
     color: red;
+}
+
+.head_title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: #000000;
+}
+
+
+@media screen and (max-width: 720px) {
+    .input {
+        /* width: 327px; */
+        height: 44px;
+    }
+    .input_field {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .input_field_lfs {
+        width: 100%;
+    }
+    .addBtn {
+        display: flex;
+        justify-content: end;
+    }
 }

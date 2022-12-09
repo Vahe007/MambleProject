@@ -11,19 +11,26 @@ const Modal = ({ handleConfirm, content, setOpen, open }) => {
         setOpen(false)
     }
 
+    const btnStyles = {
+        color: '#174348',
+        fontWeight: 600,
+        // width: '25px',
+        // height: '28px',
+    }
+
     return (
         <Dialog
             open={open}
             onClose={handleClose}
         >
-            <DialogContent>
-                <DialogContentText>
+            <DialogContent sx={{padding: '50px 50px 30px 50px'}}>
+                <DialogContentText sx={{ color: '#008594', fontSize: '18px', fontWeight: 500 }}>
                     {content}
                 </DialogContentText>
             </DialogContent>
-            <DialogActions>
-                <Button onClick={handleConfirm}>Yes</Button>
-                <Button onClick={handleClose}>No</Button>
+            <DialogActions sx={{ display: 'flex', justifyContent: 'center', paddingBottom: '40px' }}>
+                <Button sx={btnStyles} onClick={handleConfirm}>Yes</Button>
+                <Button sx={btnStyles} onClick={handleClose}>No</Button>
             </DialogActions>
         </Dialog>
     )

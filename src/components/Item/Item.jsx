@@ -8,7 +8,7 @@ import Modal from '../Modal'
 const Item = ({ name, checked, id }) => {
   const { tasks, setTasks } = useContext(TaskContext)
   const [open, setOpen] = useState(false)
-  const { task_container, task_lfs, task_content, checkbox } = styles
+  const { task_container, task_lfs, task_content, checkbox, task_content_completed } = styles
 
   const handleChange = () => {
     setTasks((prevTasks) => {
@@ -40,7 +40,7 @@ const Item = ({ name, checked, id }) => {
           <input className='checkbox' type="checkbox" onChange={handleChange} checked={checked} />
           {/* <CheckBox onChange={handleChange} checked={checked} sx={{ color: '#008594' }} /> */}
         </div>
-        <p className={task_content}>{name}</p>
+        <p className={checked ? task_content_completed : task_content}>{name}</p>
       </div>
       <CloseIcon onClick={() => setOpen(true)} sx={{ color: '#174348', cursor: 'pointer' }} />
       {open && <Modal {...dialogProps} />}

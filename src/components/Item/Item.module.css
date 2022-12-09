@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #E5E5E5;
-    ;
 }
 
 .task_lfs {
@@ -11,7 +10,8 @@
     align-items: center;
 }
 
-.task_content {
+.task_content,
+.task_content_completed {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -22,3 +22,16 @@
     margin-left: 35px;
 }
 
+.task_content_completed {
+    color: #ACACAC;
+}
+
+@media screen and (max-width: 720px) {
+
+    .task_content,
+    .task_content_completed {
+        line-break: auto;
+        text-align: initial
+    }
+
+}
