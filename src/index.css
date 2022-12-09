@@ -4,3 +4,9 @@
 body {
   margin: 0 204px 0 80px;
 }
+
+@media screen and (max-width: 720px) {
+  body {
+    margin: 0 24px 0 24px;
+  }
+}
